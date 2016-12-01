@@ -47,11 +47,9 @@ def freq_2(answer, record):
     answer_count = Counter(answer).most_common()
     answer_pair_count = Counter(answer_pair).most_common()
     for kv in answer_pair_count:
-        pair = kv[0].split(',')
         temp = []
         for i in answer_count:
-            print type(i[0])
-            if str(i[0]) in pair:
+            if i[0] in kv[0]:
                 temp.append(i)
                 count += 1
                 if count == 2:
