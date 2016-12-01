@@ -8,6 +8,7 @@ Created on Mon Nov 28 19:26:04 2016
 from collections import Counter
 from math import sqrt
 from decimal import Decimal
+from itertools import combinations
 import csv
 
 def get_index(content):
@@ -29,14 +30,20 @@ def freq_2(answer, record):
     answer_pair = []
     answer_con = []
     record_len = 0
+#    for item in record:
+#    l = len(item)
+#    for i in range(l):
+#        for j in range(i+1, l):
+##                t = ','.join([str(item[i]),str(item[j])])
+#            t = '%s,%s' %(item[i],item[j])
+#            answer_pair.append(t)
+#    record_len += 1  
+
     for item in record:
-        l = len(item)
-        for i in range(l):
-            for j in range(i+1, l):
-#                t = ','.join([str(item[i]),str(item[j])])
-                t = '%s,%s' %(item[i],item[j])
-                answer_pair.append(t)
-        record_len += 1            
+        temp = list(combinations(item,2))
+        answer_pair.extend(temp)
+        record_len += 1  
+        
     answer_count = Counter(answer).most_common()
     answer_pair_count = Counter(answer_pair).most_common()
     for kv in answer_pair_count:
