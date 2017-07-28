@@ -5,7 +5,6 @@ Created on Mon Nov 28 19:26:04 2016
 @author: Laresh
 """
 
-from collections import Counter
 from math import sqrt
 from decimal import Decimal
 from itertools import combinations
